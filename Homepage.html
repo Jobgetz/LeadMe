@@ -17,8 +17,7 @@
 
         </div>
         <div class = ResponseBox>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque minus dolor fugit impedit recusandae neque, nulla culpa sequi ut harum iste optio fugiat distinctio eius suscipit quod quidem natus praesentium.
+            <p id = "category">
             </p>
 
         </div>
@@ -27,7 +26,6 @@
         -->
         <button id="speechButton">Talk</button>
         <script>
-            var output
             var speech = document.getElementById("speechButton");
             var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             var recognition = new SpeechRecognition(); // function to recognise speech
@@ -37,13 +35,36 @@
             });
 
             recognition.onresult = function(event) {
-                var output = event.results[0][0].transcript; // string of user speech
-                console.log(output); // print to console
+                var prompt = event.results[0][0].transcript; // string of user speech
+                console.log(prompt); // print to console
+                breakDownText("test")
 
             };
         </script>
 
+        <script>
 
+            
+            const apiKey = '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';
+            const apiURL = 'https://api.openai.com/v1/completions';
+
+            async function breakDownText(prompt) {
+                // input a prompt into chatgpt and recieve categories.
+                const response = await axios.post(apiURL,{
+                    prompt: prompt,
+                    max_tokens: 20,
+                },{
+                    headers: {
+                        'Authorization': `Bearer ${apiKey}`,
+                    }
+                });
+                // recieve categories
+                category = response.data.choices[0].text;
+
+                Document.getElementById("category").innerHTML = category;
+
+            }
+        </script>
     </div>
 </body>
 </html>
