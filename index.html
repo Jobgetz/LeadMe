@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="stylesheet.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mall Thing</title>
-</head>
-<body>
-    <div class="BigBox">
-        <div class="Box">
-            <form>
-                <input type="text" id="UserInput">
-            </form>
-        </div>
-        <div class="ResponseBox">
-            <p id="category"></p>
-        </div>
-        <button id="speechButton">Talk</button>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Function to handle user input
+    function handleUserInput(prompt) {
+        // Display the user's input on the web page (you can customize this part)
+        document.getElementById('category').innerText = `User Input: ${prompt}`;
+    }
+
+    var speechButton = document.getElementById('speechButton');
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
+
+    speechButton.addEventListener('click', function () {
+        recognition.start();
+    });
+
+    recognition.onresult = function (event) {
+        var prompt = event.results[0][0].transcript;
+        document.getElementById('UserInput').value = prompt;
+        handleUserInput(prompt);
+    };
+});
