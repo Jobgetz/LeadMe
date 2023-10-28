@@ -1,7 +1,21 @@
 .Box{
     border: 2px solid black;
     margin: 4%;
-    
+    background-color: #f1f1f1;
+    padding: 1%;
+}
+
+.BigBox{
+    border: 2px solid black;
+    margin: 2%;
     padding: 10%;
+    left: 0px;
+}
+
+.ResponseBox{
+    border: 2px solid black;
+    margin: 2%;
+    padding: 10%;
+    right: 0px;
 }
 
