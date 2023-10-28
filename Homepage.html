@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +23,21 @@
 
 
         </div>
+        <button id="speechButton"> Talk </button>
+        <script>
+            var speech = document.getElementById("speechButton")
+            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+            var toText = new SpeechRecognition();
+            speech.addEventListener("click",function() {
+                recognition.start();
+            })
+
+            recognition.onresult = function(s) {
+                var output = s.results[0][0].transcript;
+            }
+
+            
+        </script>
     </div>
 </body>
 </html>
