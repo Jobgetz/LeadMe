@@ -21,23 +21,28 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque minus dolor fugit impedit recusandae neque, nulla culpa sequi ut harum iste optio fugiat distinctio eius suscipit quod quidem natus praesentium.
             </p>
 
-
         </div>
+        <!-- 
+            create the button for push to talk
+        -->
         <button id="speechButton">Talk</button>
         <script>
+            var output
             var speech = document.getElementById("speechButton");
             var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            var recognition = new SpeechRecognition(); // Changed "toText" to "recognition".
+            var recognition = new SpeechRecognition(); // function to recognise speech
 
             speech.addEventListener("click", function() {
-                recognition.start();
+                recognition.start(); // start listen
             });
 
-            recognition.onresult = function(event) { // Changed "s" to "event".
-                var output = event.results[0][0].transcript;
-                console.log(output); // Display the recognized text in the console.
+            recognition.onresult = function(event) {
+                var output = event.results[0][0].transcript; // string of user speech
+                console.log(output); // print to console
+
             };
         </script>
+
 
     </div>
 </body>
