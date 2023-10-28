@@ -23,21 +23,22 @@
 
 
         </div>
-        <button id="speechButton"> Talk </button>
+        <button id="speechButton">Talk</button>
         <script>
-            var speech = document.getElementById("speechButton")
-            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-            var toText = new SpeechRecognition();
-            speech.addEventListener("click",function() {
+            var speech = document.getElementById("speechButton");
+            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            var recognition = new SpeechRecognition(); // Changed "toText" to "recognition".
+
+            speech.addEventListener("click", function() {
                 recognition.start();
-            })
+            });
 
-            recognition.onresult = function(s) {
-                var output = s.results[0][0].transcript;
-            }
-
-            
+            recognition.onresult = function(event) { // Changed "s" to "event".
+                var output = event.results[0][0].transcript;
+                console.log(output); // Display the recognized text in the console.
+            };
         </script>
+
     </div>
 </body>
 </html>
