@@ -1,24 +1,22 @@
-import axios from "axios";
-const apiKey = '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';
-const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions';
+import OpenAI from "openai";
 
-async function createCompletion(prompt) {
-    try {
-        const response = await axios.post(apiUrl, {
-            prompt: prompt,
-            max_tokens: 20
-        }, {
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            }
-        });
+var userPrompt = "I really feel hungry what are some places i can get it at"
 
-        console.log('Generated text:', response.data.choices[0].text);
-    } catch (error) {
-        console.error('Error:', error);
-    }
+const openai = new OpenAI({ apiKey: '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' });
+
+async function main() {
+  const GPTprompt = "in one word describe what the user wants from these only categories {bathroom, exit, food, ballroom, grouproom}: " + userPrompt; 
+
+  const completion = await openai.chat.completions.create({
+    messages: [
+      { role: "system", content: "You are a helpful assistant." },
+      { role: "user", content: GPTprompt }
+    ],
+    model: "gpt-3.5-turbo",
+    max_tokens: 10, 
+  });
+
+  console.log(completion.choices[0]);
 }
 
-const userPrompt = "take this text and find where the user wants to go: 'Where can I find the best tacos'";
-createCompletion(userPrompt);
+main();

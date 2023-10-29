@@ -1,22 +1,20 @@
-document.addEventListener('DOMContentLoaded', function () {
-
-    // Function to handle user input
-    function handleUserInput(prompt) {
-        // Display the user's input on the web page (you can customize this part)
-        document.getElementById('category').innerText = `User Input: ${prompt}`;
-    }
-
-    var speechButton = document.getElementById('speechButton');
-    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    var recognition = new SpeechRecognition();
-
-    speechButton.addEventListener('click', function () {
-        recognition.start();
-    });
-
-    recognition.onresult = function (event) {
-        var prompt = event.results[0][0].transcript;
-        document.getElementById('UserInput').value = prompt;
-        handleUserInput(prompt);
-    };
-});
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Your OpenAI Chatbot</title>
+</head>
+<body>
+    <h1>OpenAI Chatbot</h1>
+    
+    <button id="speechButton">Start Chat</button>
+    
+    <p>Your prompt:</p>
+    <p id="userInput"></p>
+    
+    <p>AI Response:</p>
+    <p id="aiResponse"></p>
+    
+    <script src="index.js"></script>
+</body>
+</html>
