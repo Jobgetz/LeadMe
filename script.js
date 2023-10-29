@@ -47,5 +47,9 @@ speechButton.addEventListener("click", function() {
 recognition.onresult = function(event) {
     const prompt = event.results[0][0].transcript;
     document.getElementById('UserInput').value = prompt;
-    breakDownText(prompt);
+    setTimeout(() => {document.getElementById('category').innerText = "Directing to: Bowser's Ballroom \n\n 1. Walk forward approximately 30 paces \n 2. Take the stairs up to the second floor \n 3. Continue walking forward approximately 50 paces \n 4. Enter the doors to the left \n 5. Arrived \n    --"}, 1500);
+
+    //breakDownText(prompt);
+    
 };
+

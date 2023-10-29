@@ -2,20 +2,54 @@
     border: 2px solid black;
     margin: 4%;
     background-color: #f1f1f1;
-    padding: 1%;
+    padding:  100px;
+    position: relative;
+    margin-top: -200px;
+    margin-left: -200px;
+    width: 1200px;
+    border-radius: 20px;
+    max-height: 25px;
+    min-height: 10px;
 }
 
 .BigBox{
-    border: 2px solid black;
-    margin: 2%;
-    padding: 10%;
+    border: 4px solid black;
+    margin: 20px;
+    padding: 235px;
     left: 0px;
+    border-radius: 20px;
+    background-color: white;
+    height: 175px;
+    position: absolute;
+    width: 1000px;
 }
 
 .ResponseBox{
     border: 2px solid black;
-    margin: 2%;
-    padding: 10%;
-    right: 0px;
+    padding:  115px;
+    margin-left: -200px;
+    background-color: #c7c7c7;
+    width: 1275px;
+    margin-top: -2%;
+    text-align: left;
+    
+    border-radius: 20px;
+    position: absolute;
+    font-size: 20px;
+    min-height: 10px;
+    max-height: 100px;
+    vertical-align: top;
+    padding-top: 10px;
+    padding-left: 10px;
+    
+    
+}
+.Background{
+    background-image: linear-gradient(rgb(255, 255, 255),#545454);
+    height: 800px;
+}
+.test{
+    vertical-align: top;
+    text-align: left;
 }
 
