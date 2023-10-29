@@ -1,3 +1,7 @@
+/*
+* @author Mackenzie Langhals, Aiden Schneider, Diego Diaz, Job Getzinger
+*/
+
 // Function to perform speech recognition
 export function startSpeechRecognition() {
     return new Promise((resolve, reject) => {

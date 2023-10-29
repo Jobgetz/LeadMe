@@ -1,11 +1,11 @@
 import { startSpeechRecognition, displayUserSpeechInput, displayAIResponse, createGPTPrompt } from './helpers.js';
 import OpenAI from 'openai';
-
+// assign apiKey and allow local requests
 const openai = new OpenAI({
   apiKey: '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',
   dangerouslyAllowBrowser: true,
 });
-
+// Speech recognition and requests to openAI
 async function handleChat() {
   try {
     const userSpeechInput = await startSpeechRecognition();
@@ -21,6 +21,7 @@ async function handleChat() {
   }
 }
 
+// openAI setup and initialization
 async function sendToOpenAI(userInput) {
   try {
     const response = await openai.chat.completions.create({

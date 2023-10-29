@@ -1,3 +1,7 @@
+
+/*
+* @author Mackenzie Langhals, Aiden Schneider, Diego Diaz, Job Getzinger
+*/
 const path = require('path');
 
 module.exports = {
