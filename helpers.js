@@ -1,7 +1,7 @@
-// Function to perform speech recognition and return a Promise that resolves with the transcript
+// Function to perform speech recognition
 export function startSpeechRecognition() {
     return new Promise((resolve, reject) => {
-      const recognition = new window.webkitSpeechRecognition(); // For Safari compatibility
+      const recognition = new window.webkitSpeechRecognition(); 
       recognition.lang = 'en-US';
       recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
@@ -14,9 +14,9 @@ export function startSpeechRecognition() {
     });
   }
   
-  // Function to create the GPT prompt with the specified categories prefix
+  // Function to create the GPT prompt
   export function createGPTPrompt(userInput) {
-    const GPTprompt = 'in one word describe what the user wants from these only categories, all case sensitive {bathroom, exit, food, ballroom, grouproom, store, first-aid}:"';
+    const GPTprompt = 'pick one word from these categories that best describes what the user wants, in none return null, all case sensitive {bathroom, exit, food, ballroom, grouproom, store, first-aid, null}:"';
     return GPTprompt + userInput;
   }
   

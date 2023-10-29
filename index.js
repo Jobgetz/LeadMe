@@ -11,7 +11,7 @@ async function handleChat() {
     const userSpeechInput = await startSpeechRecognition();
     displayUserSpeechInput(userSpeechInput);
 
-    // Create GPT prompt with the specified categories prefix
+    // Create GPT prompt
     const GPTprompt = createGPTPrompt(userSpeechInput);
 
     // Send the GPT prompt to OpenAI
